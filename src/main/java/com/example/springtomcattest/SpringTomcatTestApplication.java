@@ -1,5 +1,6 @@
 package com.example.springtomcattest;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +15,16 @@ public class SpringTomcatTestApplication {
     }
 
 
+    @Slf4j
     @RestController
     @RequestMapping("hello")
     public static class TestController {
 
         @GetMapping
-        public String getHello() {
+        public String getHello() throws InterruptedException {
+            log.info("working...");
+            log.info("thread name is {}" , Thread.currentThread().toString());
+            Thread.sleep(60000);
             return "Hello";
         }
     }
