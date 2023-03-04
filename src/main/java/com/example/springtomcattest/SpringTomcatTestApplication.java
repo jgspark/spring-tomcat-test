@@ -24,7 +24,7 @@ public class SpringTomcatTestApplication {
         public String getHello() throws InterruptedException {
             log.info("working...");
             log.info("thread name is {}" , Thread.currentThread().toString());
-            Thread.sleep(60000);
+            Thread.sleep(5000);
             return "Hello";
         }
     }
